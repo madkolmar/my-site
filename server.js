@@ -1,6 +1,6 @@
 var http = require("http");
 var url = require("url");
-var port = process.env.port || 5000;
+var port = process.env.PORT || 5000;
 
 function start(route, handle) {
 	function onRequest(request, response) {
@@ -9,7 +9,7 @@ function start(route, handle) {
 		    route(handle, pathname, response);
 		}
 	    http.createServer(onRequest).listen(parseInt(port));
-		console.log("Heroku says: port is " + process.env.port);
+		console.log("Heroku says: port is " + process.env.PORT);
 		console.log("Server has started at port " + port);
 	}	
 
